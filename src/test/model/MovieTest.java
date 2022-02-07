@@ -41,6 +41,16 @@ class MovieTest {
     }
 
     @Test
+    void addSameGenreTest() {
+        ArrayList<String> genres = testMovie.getGenres();
+        assertTrue(genres.isEmpty());
+        testMovie.addGenre("horror");
+        testMovie.addGenre("horror");
+        assertEquals("horror", genres.get(0));
+        assertEquals(1,genres.size());
+    }
+
+    @Test
     void setUserRatingTest() {
         assertEquals(0,testMovie.getUserRating());
         testMovie.setUserRating(4);

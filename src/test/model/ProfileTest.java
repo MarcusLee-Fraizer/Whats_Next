@@ -43,12 +43,63 @@ public class ProfileTest {
         ArrayList<Movie> sciFi = testProfile.searchByGenre(movies,"sci-fi");
         ArrayList<Movie> adventure = testProfile.searchByGenre(movies,"adventure");
         ArrayList<Movie> action = testProfile.searchByGenre(movies,"action");
-
         assertEquals(2,sciFi.size());
         assertEquals(2,adventure.size());
         assertEquals(1,action.size());
         assertEquals(m1, sciFi.get(0));
-        assertEquals(m2, sciFi.get(1));
+        assertEquals(m3, sciFi.get(1));
+        assertEquals(m3, adventure.get(1));
+    }
+
+    @Test
+    void searchWatchedByGenreTest() {
+        ArrayList<Movie> movies = testProfile.getWatchedMovies();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+        Movie m3 = new Movie("Jurassic Park");
+        m1.addGenre("sci-fi");
+        m2.addGenre("action");
+        m2.addGenre("adventure");
+        m3.addGenre("adventure");
+        m3.addGenre("sci-fi");
+        movies.add(m1);
+        movies.add(m2);
+        movies.add(m3);
+
+        ArrayList<Movie> sciFi = testProfile.searchWatchedByGenre("sci-fi");
+        ArrayList<Movie> adventure = testProfile.searchWatchedByGenre("adventure");
+        ArrayList<Movie> action = testProfile.searchWatchedByGenre("action");
+        assertEquals(2,sciFi.size());
+        assertEquals(2,adventure.size());
+        assertEquals(1,action.size());
+        assertEquals(m1, sciFi.get(0));
+        assertEquals(m3, sciFi.get(1));
+        assertEquals(m3, adventure.get(1));
+    }
+
+    @Test
+    void searchRecommendedByGenreTest() {
+        ArrayList<Movie> movies = testProfile.getRecommendedMovies();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+        Movie m3 = new Movie("Jurassic Park");
+        m1.addGenre("sci-fi");
+        m2.addGenre("action");
+        m2.addGenre("adventure");
+        m3.addGenre("adventure");
+        m3.addGenre("sci-fi");
+        movies.add(m1);
+        movies.add(m2);
+        movies.add(m3);
+
+        ArrayList<Movie> sciFi = testProfile.searchRecommendedByGenre("sci-fi");
+        ArrayList<Movie> adventure = testProfile.searchRecommendedByGenre("adventure");
+        ArrayList<Movie> action = testProfile.searchRecommendedByGenre("action");
+        assertEquals(2,sciFi.size());
+        assertEquals(2,adventure.size());
+        assertEquals(1,action.size());
+        assertEquals(m1, sciFi.get(0));
+        assertEquals(m3, sciFi.get(1));
         assertEquals(m3, adventure.get(1));
     }
 
@@ -68,9 +119,8 @@ public class ProfileTest {
         ArrayList<Movie> searchZero = testProfile.searchByUserRating(0);
         ArrayList<Movie> searchThree = testProfile.searchByUserRating(3);
         ArrayList<Movie> searchFive = testProfile.searchByUserRating(5);
-
         assertEquals(3,searchZero.size());
-        assertEquals(3,searchThree.size());
+        assertEquals(2,searchThree.size());
         assertEquals(0,searchFive.size());
         assertEquals(m1, searchZero.get(0));
         assertTrue(searchThree.contains(m2));

@@ -18,15 +18,12 @@ public class Movie {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds given genre to genres
+    // EFFECTS: adds given genre to genres if it is not already in
+    // the list
     public void addGenre(String genre) {
-        genres.add(genre);
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets the user rating of this movie to the given rating.
-    public void setUserRating(int rating) {
-        userRating = rating;
+        if (!genres.contains(genre)) {
+            genres.add(genre);
+        }
     }
 
     public String getTitle() {
@@ -39,6 +36,12 @@ public class Movie {
 
     public int getUserRating() {
         return userRating;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets the user rating of this movie to the given rating.
+    public void setUserRating(int rating) {
+        userRating = rating;
     }
 
 }
