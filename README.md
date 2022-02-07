@@ -25,7 +25,7 @@ problem.
 
 **A list of user stories**:
 - As a user, I want to be able to add multiple 
-movies to my "Watched Movies" list.
+movies to my "Watched Movies" list on my profile.
 - As a user, I want to be able to give a movie,
 in my "Watched Movies" list, a rating out of 5 
 stars. 
