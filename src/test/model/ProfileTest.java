@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ProfileTest {
     Profile testProfile;
@@ -125,5 +124,62 @@ public class ProfileTest {
         assertEquals(m1, searchZero.get(0));
         assertTrue(searchThree.contains(m2));
         assertTrue(searchThree.contains(m3));
+    }
+
+    @Test
+    void addToMovieListTest() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+
+        assertTrue(testProfile.addToMovieList(movies,m1));
+        testProfile.addToMovieList(movies,m1);
+        assertTrue(testProfile.addToMovieList(movies,m2));
+        testProfile.addToMovieList(movies,m2);
+        assertFalse(testProfile.addToMovieList(movies,m1));
+        testProfile.addToMovieList(movies,m1);
+
+        assertEquals(2,movies.size());
+        assertEquals(m1,movies.get(0));
+        assertEquals(m2,movies.get(1));
+
+    }
+
+    @Test
+    void addToWatchedListTest() {
+        ArrayList<Movie> movies = testProfile.getWatchedMovies();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+
+        assertTrue(testProfile.addToWatchedList(m1));
+        testProfile.addToWatchedList(m1);
+        assertTrue(testProfile.addToWatchedList(m2));
+        testProfile.addToWatchedList(m2);
+        assertFalse(testProfile.addToWatchedList(m1));
+        testProfile.addToWatchedList(m1);
+
+        assertEquals(2,movies.size());
+        assertEquals(m1,movies.get(0));
+        assertEquals(m2,movies.get(1));
+
+    }
+
+    @Test
+    void addToRecommendedListTest() {
+        ArrayList<Movie> movies = testProfile.getRecommendedMovies();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+
+        assertTrue(testProfile.addToRecommendedList(m1));
+        testProfile.addToRecommendedList(m1);
+        assertTrue(testProfile.addToRecommendedList(m2));
+        testProfile.addToRecommendedList(m2);
+        assertFalse(testProfile.addToRecommendedList(m1));
+        testProfile.addToRecommendedList(m1);
+
+        assertEquals(2,movies.size());
+        assertEquals(m1,movies.get(0));
+        assertEquals(m2,movies.get(1));
+
     }
 }

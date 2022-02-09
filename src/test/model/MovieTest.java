@@ -21,6 +21,7 @@ class MovieTest {
         ArrayList<String> genres = testMovie.getGenres();
         assertTrue(genres.isEmpty());
         assertEquals(0,testMovie.getUserRating());
+        assertEquals("Not Available",testMovie.getStreamingService());
     }
 
     @Test

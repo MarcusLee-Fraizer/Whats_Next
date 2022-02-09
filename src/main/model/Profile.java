@@ -56,6 +56,36 @@ public class Profile {
         return searchByGenre(recommendedMovies, genre);
     }
 
+    // REQUIRES: movie title is a non-empty string.
+    // MODIFIES: this
+    // EFFECTS: if the given movie has a title unique to the given
+    // movies list, adds movie to the list
+    public boolean addToMovieList(ArrayList<Movie> movieList, Movie newMovie) {
+        for (Movie movie: movieList) {
+            if (newMovie.getTitle().equals(movie.getTitle())) {
+                return false;
+            }
+        }
+        movieList.add(newMovie);
+        return true;
+    }
+
+    // REQUIRES: movie title is a non-empty string.
+    // MODIFIES: this
+    // EFFECTS: if the given movie has a title unique to the watched
+    // movies list, adds movie to the list
+    public boolean addToWatchedList(Movie newMovie) {
+        return addToMovieList(watchedMovies,newMovie);
+    }
+
+    // REQUIRES: movie title is a non-empty string.
+    // MODIFIES: this
+    // EFFECTS: if the given movie has a title unique to the recommended
+    // movies list, adds movie to the list
+    public boolean addToRecommendedList(Movie newMovie) {
+        return addToMovieList(recommendedMovies,newMovie);
+    }
+
 
     public String getName() {
         return name;
