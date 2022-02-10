@@ -31,7 +31,7 @@ public class Profile {
     }
 
     // EFFECTS: if a movie in the given list has a given title,
-    // return that movie.
+    // return that movie. If not, return null.
     public Movie searchByTitle(ArrayList<Movie> movies, String title) {
         for (Movie movie: movies) {
             if (movie.getTitle().equals(title)) {
@@ -41,10 +41,16 @@ public class Profile {
         return null;
     }
 
+    // REQUIRES: searchByTitle()
+    // EFFECTS: if a movie with the given title is in the watchedMovies list,
+    // return the movie. If not, return null.
     public Movie searchWatchedByTitle(String title) {
         return searchByTitle(watchedMovies, title);
     }
 
+    // REQUIRES: searchByTitle()
+    // EFFECTS: if a movie with the given title is in the recommendedMovies list,
+    // return the movie. If not, return null.
     public Movie searchRecommendedByTitle(String title) {
         return searchByTitle(recommendedMovies, title);
     }
@@ -62,12 +68,14 @@ public class Profile {
         return moviesWithGenre;
     }
 
+    // REQUIRES: searchByGenre()
     // EFFECTS: given a genre, returns a list of watched movies with
     // that genre.
     public ArrayList<Movie> searchWatchedByGenre(String genre) {
         return searchByGenre(watchedMovies, genre);
     }
 
+    // REQUIRES: searchByGenre()
     // EFFECTS: given a genre, returns a list of recommended movies with
     // that genre.
     public ArrayList<Movie> searchRecommendedByGenre(String genre) {
@@ -88,7 +96,7 @@ public class Profile {
         return true;
     }
 
-    // REQUIRES: movie title is a non-empty string.
+    // REQUIRES: addToMovieList()
     // MODIFIES: this
     // EFFECTS: if the given movie has a title unique to the watched
     // movies list, adds movie to the list
@@ -96,7 +104,7 @@ public class Profile {
         return addToMovieList(watchedMovies,newMovie);
     }
 
-    // REQUIRES: movie title is a non-empty string.
+    // REQUIRES: addToMovieList()
     // MODIFIES: this
     // EFFECTS: if the given movie has a title unique to the recommended
     // movies list, adds movie to the list
