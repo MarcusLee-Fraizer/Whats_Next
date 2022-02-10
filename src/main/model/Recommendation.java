@@ -10,11 +10,11 @@ public class Recommendation {
     // EFFECTS: constructs a new recommendation with an empty database
     // of movies.
     public Recommendation() {
-        //stub
+        database = new ArrayList<>();
     }
 
     public ArrayList<Movie> getDatabase() {
-        return null; //stub
+        return database;
     }
 
     // MODIFIES: this
@@ -22,7 +22,12 @@ public class Recommendation {
     // to database and returns true. If the movie is in database,
     // returns false.
     public boolean addToDatabase(Movie movie) {
-        return false; //stub
+        if (database.contains(movie)) {
+            return false;
+        } else {
+            database.add(movie);
+            return true;
+        }
     }
 
     // EFFECTS: returns a list of movies from the database with the given genre.
