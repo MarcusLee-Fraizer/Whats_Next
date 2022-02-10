@@ -17,6 +17,17 @@ public class Profile {
         recommendedMovies = new ArrayList<>();
     }
 
+    // EFFECTS: if a movie in the watched list has a given title,
+    // return that movie.
+    public Movie searchByTitle(String title) {
+        for (Movie movie: watchedMovies) {
+            if (movie.getTitle().equals(title)) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
     // REQUIRES: rating must be in the range 0-5
     // EFFECTS: given a user rating, returns a list of watched movies with
     // that rating or above.

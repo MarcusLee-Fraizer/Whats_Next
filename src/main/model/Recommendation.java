@@ -33,14 +33,29 @@ public class Recommendation {
     // EFFECTS: returns a list of movies from the database with the given genre.
     // If no such movie exists in the database, an empty list is returned.
     public ArrayList<Movie> recommendByGenre(String genre) {
-        return null; //stub
+        ArrayList<Movie> recommendations = new ArrayList<>();
+        for (Movie movie: database) {
+            if (movie.getGenres().contains(genre)) {
+                recommendations.add(movie);
+            }
+        }
+        return recommendations;
     }
 
     // EFFECTS: returns a list of movies from the database with one or
     // more matching genres to the given movie. If no such movie is in
     // the database, return an empty list.
     public ArrayList<Movie> recommendBySimilarMovie(Movie movie) {
-        return null; //stub
+        ArrayList<Movie> recommendations = new ArrayList<>();
+        ArrayList<String> genres = movie.getGenres();
+        for (Movie m: database) {
+            for (String genre: genres) {
+                if (m.getGenres().contains(genre)) {
+                    recommendations.add(m);
+                }
+            }
+        }
+        return recommendations;
     }
 
 

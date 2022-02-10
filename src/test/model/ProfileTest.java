@@ -25,6 +25,19 @@ public class ProfileTest {
     }
 
     @Test
+    void searchByTitleTest() {
+        ArrayList<Movie> movies = testProfile.getWatchedMovies();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+        movies.add(m1);
+        movies.add(m2);
+
+        assertEquals(m1,testProfile.searchByTitle("Star Wars"));
+        assertEquals(m2,testProfile.searchByTitle("Raiders of the Lost Ark"));
+        assertNull(testProfile.searchByTitle("Jurassic Park"));
+    }
+
+    @Test
     void searchByGenreTest() {
         ArrayList<Movie> movies = new ArrayList<>();
         Movie m1 = new Movie("Star Wars");
