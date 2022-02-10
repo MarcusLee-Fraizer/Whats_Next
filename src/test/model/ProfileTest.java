@@ -26,15 +26,41 @@ public class ProfileTest {
 
     @Test
     void searchByTitleTest() {
+        ArrayList<Movie> movies = new ArrayList<>();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+        movies.add(m1);
+        movies.add(m2);
+
+        assertEquals(m1, testProfile.searchByTitle(movies, "Star Wars"));
+        assertEquals(m2,testProfile.searchByTitle(movies,"Raiders of the Lost Ark"));
+        assertNull(testProfile.searchByTitle(movies,"Jurassic Park"));
+    }
+
+    @Test
+    void searchWatchedByTitleTest() {
         ArrayList<Movie> movies = testProfile.getWatchedMovies();
         Movie m1 = new Movie("Star Wars");
         Movie m2 = new Movie("Raiders of the Lost Ark");
         movies.add(m1);
         movies.add(m2);
 
-        assertEquals(m1,testProfile.searchByTitle("Star Wars"));
-        assertEquals(m2,testProfile.searchByTitle("Raiders of the Lost Ark"));
-        assertNull(testProfile.searchByTitle("Jurassic Park"));
+        assertEquals(m1, testProfile.searchWatchedByTitle("Star Wars"));
+        assertEquals(m2,testProfile.searchWatchedByTitle("Raiders of the Lost Ark"));
+        assertNull(testProfile.searchWatchedByTitle("Jurassic Park"));
+    }
+
+    @Test
+    void searchRecommendedByTitleTest() {
+        ArrayList<Movie> movies = testProfile.getRecommendedMovies();
+        Movie m1 = new Movie("Star Wars");
+        Movie m2 = new Movie("Raiders of the Lost Ark");
+        movies.add(m1);
+        movies.add(m2);
+
+        assertEquals(m1, testProfile.searchRecommendedByTitle("Star Wars"));
+        assertEquals(m2,testProfile.searchRecommendedByTitle("Raiders of the Lost Ark"));
+        assertNull(testProfile.searchRecommendedByTitle("Jurassic Park"));
     }
 
     @Test
