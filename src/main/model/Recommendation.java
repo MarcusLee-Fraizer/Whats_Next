@@ -21,12 +21,9 @@ public class Recommendation {
     // EFFECTS: if the movie is not in the database, adds given movie
     // to database and returns true. If the movie is in database,
     // returns false.
-    public boolean addToDatabase(Movie movie) {
-        if (database.contains(movie)) {
-            return false;
-        } else {
+    public void addToDatabase(Movie movie) {
+        if (!database.contains(movie)) {
             database.add(movie);
-            return true;
         }
     }
 
@@ -57,7 +54,5 @@ public class Recommendation {
         }
         return recommendations;
     }
-
-
 
 }

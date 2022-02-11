@@ -26,9 +26,9 @@ public class RecommendationTest {
         Movie m2 = new Movie("Halloween");
         ArrayList<Movie> database = testRecommendation.getDatabase();
 
-        assertTrue(testRecommendation.addToDatabase(m1));
-        assertTrue(testRecommendation.addToDatabase(m2));
-        assertFalse(testRecommendation.addToDatabase(m1));
+        testRecommendation.addToDatabase(m1);
+        testRecommendation.addToDatabase(m2);
+        testRecommendation.addToDatabase(m1);
         assertEquals(2,database.size());
         assertEquals(m1,database.get(0));
         assertEquals(m2,database.get(1));
@@ -43,9 +43,9 @@ public class RecommendationTest {
         m1.addGenre("horror");
         m2.addGenre("drama");
         m3.addGenre("horror");
-        assertTrue(testRecommendation.addToDatabase(m1));
-        assertTrue(testRecommendation.addToDatabase(m2));
-        assertTrue(testRecommendation.addToDatabase(m3));
+        testRecommendation.addToDatabase(m1);
+        testRecommendation.addToDatabase(m2);
+        testRecommendation.addToDatabase(m3);
 
         ArrayList<Movie> horror = testRecommendation.recommendByGenre("horror");
         ArrayList<Movie> drama = testRecommendation.recommendByGenre("drama");
@@ -68,9 +68,9 @@ public class RecommendationTest {
         m1.addGenre("horror");
         m2.addGenre("drama");
         m3.addGenre("horror");
-        assertTrue(testRecommendation.addToDatabase(m1));
-        assertTrue(testRecommendation.addToDatabase(m2));
-        assertTrue(testRecommendation.addToDatabase(m3));
+        testRecommendation.addToDatabase(m1);
+        testRecommendation.addToDatabase(m2);
+        testRecommendation.addToDatabase(m3);
 
         Movie m4 = new Movie("The Dark Knight");
         Movie m5 = new Movie("It");

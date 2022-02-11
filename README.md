@@ -30,7 +30,7 @@ movies to my "Watched Movies" list on my profile.
 in my "Watched Movies" list, a rating out of 5 
 stars. 
 - As a user, I want search for films that I have 
-watched based on genre or star rating.
+watched based on title or genre.
 - As a user, I want to get movie recommendations
 based on a genre or previously watched movie.
 

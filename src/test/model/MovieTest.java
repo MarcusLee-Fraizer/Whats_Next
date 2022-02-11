@@ -58,4 +58,11 @@ class MovieTest {
         assertEquals(4,testMovie.getUserRating());
     }
 
+    @Test
+    void setStreamingServiceTest() {
+        assertEquals("Not Available",testMovie.getStreamingService());
+        testMovie.setStreamingService("HBO Max");
+        assertEquals("HBO Max",testMovie.getStreamingService());
+    }
+
 }

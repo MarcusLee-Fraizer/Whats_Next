@@ -28,10 +28,17 @@ public class Movie {
         }
     }
 
+    // REQUIRES: rating is in the range 0-5
     // MODIFIES: this
     // EFFECTS: sets the user rating of this movie to the given rating.
     public void setUserRating(int rating) {
         userRating = rating;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets streaming service of this movie
+    public void setStreamingService(String service) {
+        streamingService = service;
     }
 
     public String getTitle() {
