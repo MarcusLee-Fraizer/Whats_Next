@@ -9,7 +9,6 @@ public class Movie {
     private int userRating;
     private String streamingService;
 
-    // REQUIRES: title is non-empty string
     // EFFECTS: constructs a movie with a title, an empty list of genres,
     // user rating of 0, and is available on no streaming services.
     public Movie(String title) {

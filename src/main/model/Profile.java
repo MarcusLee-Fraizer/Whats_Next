@@ -82,7 +82,6 @@ public class Profile {
         return searchByGenre(recommendedMovies, genre);
     }
 
-    // REQUIRES: movie title is a non-empty string.
     // MODIFIES: this
     // EFFECTS: if the given movie has a title unique to the given
     // movies list, adds movie to the list

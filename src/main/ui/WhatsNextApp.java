@@ -20,11 +20,14 @@ public class WhatsNextApp {
 
     // MODIFIES: this
     // EFFECTS: processes user input
+    // Citation: TellerApp, VCS link - https://github.students.cs.ubc.ca/CPSC210/TellerApp
     private void runWhatsNextApp() {
         boolean continueRun = true;
         String command;
 
         initialize();
+
+        System.out.println("Welcome Back, " + profile.getName() + "!");
 
         while (continueRun) {
             displayMenu();
@@ -174,6 +177,7 @@ public class WhatsNextApp {
 
         String title = input.next();
         title = title.toUpperCase();
+
         Movie newMovie = new Movie(title);
 
         addGenres(newMovie);
@@ -327,6 +331,7 @@ public class WhatsNextApp {
     // EFFECTS: prints a list of recommended movies based on the given title
     private void recommendTitle(String title) {
         Movie watchedMovie = profile.searchWatchedByTitle(title);
+        ArrayList<Movie> uniqueMovies = new ArrayList<>();
 
         if (watchedMovie == null) {
             System.out.println("Sorry, we have no recommendations for you :(");
@@ -335,9 +340,14 @@ public class WhatsNextApp {
 
             System.out.println("We recommend these movies:\n");
             for (Movie movie : newMovies) {
+                if (!uniqueMovies.contains(movie)) {
+                    uniqueMovies.add(movie);
+                }
+                profile.addToRecommendedList(movie);
+            }
+            for (Movie movie: uniqueMovies) {
                 System.out.println("Title: " + movie.getTitle());
                 System.out.println("Streaming service " + movie.getStreamingService());
-                profile.addToRecommendedList(movie);
             }
         }
     }
@@ -345,15 +355,21 @@ public class WhatsNextApp {
     // EFFECTS: prints a list of recommended movies based on the given genre
     private void recommendGenre(String genre) {
         ArrayList<Movie> newMovies = recommendation.recommendByGenre(genre);
+        ArrayList<Movie> uniqueMovies = new ArrayList<>();
 
         if (newMovies.isEmpty()) {
             System.out.println("Sorry, we have no recommendations for you :(");
         } else {
             System.out.println("We recommend these movies:\n");
             for (Movie movie : newMovies) {
+                if (!uniqueMovies.contains(movie)) {
+                    uniqueMovies.add(movie);
+                }
+                profile.addToRecommendedList(movie);
+            }
+            for (Movie movie: uniqueMovies) {
                 System.out.println("Title: " + movie.getTitle());
                 System.out.println("Streaming service " + movie.getStreamingService());
-                profile.addToRecommendedList(movie);
             }
         }
     }

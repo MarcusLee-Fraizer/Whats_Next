@@ -13,10 +13,6 @@ public class Recommendation {
         database = new ArrayList<>();
     }
 
-    public ArrayList<Movie> getDatabase() {
-        return database;
-    }
-
     // MODIFIES: this
     // EFFECTS: if the movie is not in the database, adds given movie
     // to database and returns true. If the movie is in database,
@@ -53,6 +49,10 @@ public class Recommendation {
             }
         }
         return recommendations;
+    }
+
+    public ArrayList<Movie> getDatabase() {
+        return database;
     }
 
 }
