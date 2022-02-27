@@ -3,18 +3,27 @@ package ui;
 import model.Movie;
 import model.Profile;
 import model.Recommendation;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 // What's Next? Movie logging and recommendation app.
 public class WhatsNextApp {
+    private static final String JSON_STORE = "./data/whatsNext.json";
     private Profile profile;
     private Recommendation recommendation;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs What's Next application
-    public WhatsNextApp() {
+    public WhatsNextApp() throws FileNotFoundException {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runWhatsNextApp();
     }
 
@@ -59,6 +68,10 @@ public class WhatsNextApp {
             viewRecommendedMovies();
         } else if (command.equals("NEW")) {
             getRecommendation();
+        } else if (command.equals("SAVE")) {
+            saveProfile();
+        } else if (command.equals("LOAD")) {
+            loadProfile();
         } else {
             System.out.println("Sorry we can't do that.");
         }
@@ -138,6 +151,8 @@ public class WhatsNextApp {
         System.out.println("\tSEARCH -> search for a movie in your watched list");
         System.out.println("\tRECOMMENDED -> view a list of movies that were previously recommended");
         System.out.println("\tNEW -> get a new movie recommendation");
+        System.out.println("\tSAVE -> save changes to your profile");
+        System.out.println("\tLOAD -> load a previous profile");
         System.out.println("\tQ -> quit");
     }
 
@@ -384,5 +399,28 @@ public class WhatsNextApp {
             System.out.println(genre);
         }
         System.out.println("\n");
+    }
+
+    // EFFECTS: saves the profile to file
+    private void saveProfile() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(profile);
+            jsonWriter.close();
+            System.out.println("Your changes were successfully saved!");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads profile from file
+    private void loadProfile() {
+        try {
+            profile = jsonReader.read();
+            System.out.println("Your profile was successfully loaded.");
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }

@@ -1,0 +1,91 @@
+{
+    "watched": [
+        {
+            "genres": [
+                "SCI-FI",
+                "ACTION"
+            ],
+            "streamingService": "Not Available",
+            "title": "INCEPTION",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "HORROR",
+                "COMEDY"
+            ],
+            "streamingService": "Not Available",
+            "title": "SCREAM",
+            "userRating": 4
+        },
+        {
+            "genres": [
+                "SUPERHERO",
+                "ACTION"
+            ],
+            "streamingService": "Not Available",
+            "title": "THE AVENGERS",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "SUPERHERO",
+                "ACTION"
+            ],
+            "streamingService": "Not Available",
+            "title": "IRON MAN",
+            "userRating": 0
+        },
+        {
+            "genres": ["ACTION"],
+            "streamingService": "Not Available",
+            "title": "MISSION: IMPOSSIBLE",
+            "userRating": 0
+        },
+        {
+            "genres": ["HORROR"],
+            "streamingService": "NETFLIX",
+            "title": "THE TEXAS CHAINSAW MASSACRE",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "SUPERHERO",
+                "ACTION"
+            ],
+            "streamingService": "Not Available",
+            "title": "AQUAMAN",
+            "userRating": 0
+        }
+    ],
+    "name": "Nick",
+    "recommended": [
+        {
+            "genres": [
+                "SCI-FI",
+                "HORROR"
+            ],
+            "streamingService": "Not Available",
+            "title": "THE THING",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "HORROR",
+                "COMEDY"
+            ],
+            "streamingService": "Not Available",
+            "title": "SCREAM 2",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "SUPERHERO",
+                "COMEDY"
+            ],
+            "streamingService": "Not Available",
+            "title": "DEADPOOL",
+            "userRating": 0
+        }
+    ]
+}

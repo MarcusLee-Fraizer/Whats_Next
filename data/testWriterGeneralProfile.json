@@ -1,0 +1,37 @@
+{
+    "watched": [
+        {
+            "genres": ["horror"],
+            "streamingService": "Not Available",
+            "title": "Saw",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "drama",
+                "romance"
+            ],
+            "streamingService": "Not Available",
+            "title": "Titanic",
+            "userRating": 0
+        }
+    ],
+    "name": "Dylan",
+    "recommended": [
+        {
+            "genres": ["comedy"],
+            "streamingService": "Not Available",
+            "title": "Mean Girls",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "horror",
+                "thriller"
+            ],
+            "streamingService": "Not Available",
+            "title": "The Ring",
+            "userRating": 0
+        }
+    ]
+}

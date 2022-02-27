@@ -2,6 +2,7 @@ package persistence;
 
 import model.Movie;
 import model.Profile;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -34,7 +35,7 @@ public class JsonReader {
         StringBuilder contentBuilder = new StringBuilder();
 
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
-            stream.forEach(s -> contentBuilder.append(s));
+            stream.forEach(contentBuilder::append);
         }
 
         return contentBuilder.toString();
@@ -50,6 +51,7 @@ public class JsonReader {
 
     // MODIFIES: profile
     // EFFECTS: parses movie lists from JSON object and adds them to profile
+    // watchedMovies and recommendedMovies
     private void addMovieLists(Profile profile, JSONObject jsonObject) {
         JSONArray jsonArrayWatched = jsonObject.getJSONArray("watched");
         for (Object json : jsonArrayWatched) {
@@ -67,10 +69,10 @@ public class JsonReader {
     }
 
     // MODIFIES: profile
-    // EFFECTS: parses movies from JSON object and adds them to profile
+    // EFFECTS: parses movies from JSON object and adds them to given list
     private void addMovie(ArrayList<Movie> movies, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
-        Integer userRating = jsonObject.getInt("userRating");
+        int userRating = jsonObject.getInt("userRating");
         String streamingService = jsonObject.getString("streamingService");
 
         Movie movie = new Movie(title);
@@ -79,9 +81,9 @@ public class JsonReader {
 
         ArrayList<String> genres = movie.getGenres();
         JSONArray genreList = jsonObject.getJSONArray("genres");
-        if (genreList != null) {
-            for (int i = 0; i < genreList.length(); i++) {
-                genres.add(genreList.getString(i));
+        if (!genreList.isEmpty()) {
+            for (int counter = 0; counter < genreList.length(); counter++) {
+                genres.add(genreList.getString(counter));
             }
         }
         movies.add(movie);

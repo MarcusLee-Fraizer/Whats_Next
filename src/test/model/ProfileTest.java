@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -219,6 +221,27 @@ public class ProfileTest {
         assertEquals(2,movies.size());
         assertEquals(m1,movies.get(0));
         assertEquals(m2,movies.get(1));
+
+    }
+
+    @Test
+    void profileToJsonTest() {
+        Movie m1 = new Movie("Saw");
+        Movie m2 = new Movie("Titanic");
+        Movie m3 = new Movie("Mean Girls");
+        Movie m4 = new Movie("The Ring");
+
+        testProfile.addToWatchedList(m1);
+        testProfile.addToWatchedList(m2);
+        testProfile.addToRecommendedList(m3);
+        testProfile.addToRecommendedList(m4);
+
+        JSONObject json = testProfile.toJson();
+        JSONArray watched = json.getJSONArray("watched");
+        JSONArray recommended = json.getJSONArray("recommended");
+        assertEquals("Anthony",json.getString("name"));
+        assertEquals(2,watched.length());
+        assertEquals(2,recommended.length());
 
     }
 }

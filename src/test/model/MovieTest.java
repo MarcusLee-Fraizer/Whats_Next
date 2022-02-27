@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -63,6 +64,15 @@ class MovieTest {
         assertEquals("Not Available",testMovie.getStreamingService());
         testMovie.setStreamingService("HBO Max");
         assertEquals("HBO Max",testMovie.getStreamingService());
+    }
+
+    @Test
+    void movieToJsonTest() {
+        JSONObject json = testMovie.toJson();
+        assertEquals("Malignant", json.getString("title"));
+        assertEquals(0, json.getInt("userRating"));
+        assertEquals("Not Available", json.getString("streamingService"));
+        assertEquals(0,json.getJSONArray("genres").length());
     }
 
 }
