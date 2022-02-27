@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Savable;
+
 import java.util.ArrayList;
 
 // Represents a user profile with the user's name, a list of watched movies
 // and a list of recommended movies.
-public class Profile {
+public class Profile implements Savable {
     private String name;
     private ArrayList<Movie> watchedMovies;
     private ArrayList<Movie> recommendedMovies;
@@ -124,4 +128,23 @@ public class Profile {
         return recommendedMovies;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("watched", moviesToJson(watchedMovies));
+        json.put("recommended", moviesToJson(recommendedMovies));
+        return json;
+    }
+
+    // EFFECTS: returns a movie list in this as a JSON array
+    private JSONArray moviesToJson(ArrayList<Movie> movies) {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Movie movie : movies) {
+            jsonArray.put(movie.toJson());
+        }
+
+        return jsonArray;
+    }
 }

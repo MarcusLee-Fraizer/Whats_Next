@@ -1,9 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Savable;
+
 import java.util.ArrayList;
 
 // Represents a movie with a title, list of genres, a user rating, and a streaming service.
-public class Movie {
+public class Movie implements Savable {
     private String title;
     private ArrayList<String> genres;
     private int userRating;
@@ -56,4 +59,13 @@ public class Movie {
         return userRating;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("genres", genres);
+        json.put("userRating", userRating);
+        json.put("streamingService", streamingService);
+        return json;
+    }
 }
