@@ -305,7 +305,8 @@ public class WhatsNextApp {
         }
     }
 
-    // EFFECTS: prints out a profile's recommended list to the screen
+    // EFFECTS: prints out a profile's recommended list to the screen if the
+    // list is not empty
     private void viewRecommendedMovies() {
         ArrayList<Movie> recommended = profile.getRecommendedMovies();
         if (recommended.isEmpty()) {
@@ -402,6 +403,7 @@ public class WhatsNextApp {
     }
 
     // EFFECTS: saves the profile to file
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private void saveProfile() {
         try {
             jsonWriter.open();
@@ -415,6 +417,7 @@ public class WhatsNextApp {
 
     // MODIFIES: this
     // EFFECTS: loads profile from file
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private void loadProfile() {
         try {
             profile = jsonReader.read();

@@ -129,6 +129,7 @@ public class Profile implements Savable {
     }
 
     @Override
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
@@ -138,6 +139,7 @@ public class Profile implements Savable {
     }
 
     // EFFECTS: returns a movie list in this as a JSON array
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private JSONArray moviesToJson(ArrayList<Movie> movies) {
         JSONArray jsonArray = new JSONArray();
 

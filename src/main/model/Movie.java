@@ -60,6 +60,7 @@ public class Movie implements Savable {
     }
 
     @Override
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("title", title);

@@ -43,9 +43,22 @@
             "userRating": 0
         },
         {
-            "genres": ["HORROR"],
-            "streamingService": "NETFLIX",
-            "title": "THE TEXAS CHAINSAW MASSACRE",
+            "genres": [
+                "HORROR",
+                "COMEDY",
+                "THRILLER"
+            ],
+            "streamingService": "PARAMOUNT+",
+            "title": "SCREAM (2022)",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "ANIMATION",
+                "COMEDY"
+            ],
+            "streamingService": "Not Available",
+            "title": "DETECTIVE PIKACHU",
             "userRating": 0
         },
         {
@@ -53,9 +66,9 @@
                 "SUPERHERO",
                 "ACTION"
             ],
-            "streamingService": "Not Available",
-            "title": "AQUAMAN",
-            "userRating": 0
+            "streamingService": "DISNEY+",
+            "title": "BLACK WIDOW",
+            "userRating": 3
         }
     ],
     "name": "Nick",
@@ -85,6 +98,21 @@
             ],
             "streamingService": "Not Available",
             "title": "DEADPOOL",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "ACTION",
+                "SUPERHERO"
+            ],
+            "streamingService": "Not Available",
+            "title": "THE BATMAN",
+            "userRating": 0
+        },
+        {
+            "genres": ["ACTION"],
+            "streamingService": "Not Available",
+            "title": "NO TIME TO DIE",
             "userRating": 0
         }
     ]

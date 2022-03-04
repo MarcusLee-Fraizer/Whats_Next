@@ -33,9 +33,10 @@ stars.
 watched based on title or genre.
 - As a user, I want to get movie recommendations
 based on a genre or previously watched movie.
-- As a user, I want to save additions to movies in
+- As a user, I want to save movie additions to
 my recommendation and watched lists.
 - As a user, I want to be able to load previous 
-recommendation and watched lists.
+recommendation and watched lists to my current 
+profile.
 
   

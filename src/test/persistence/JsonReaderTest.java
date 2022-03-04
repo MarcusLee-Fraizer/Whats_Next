@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class JsonReaderTest extends JsonTest {
 
     @Test
+        // Citation: JsonSerializationDemo,
+        // VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/nothing.json");
         try {
@@ -23,41 +25,10 @@ class JsonReaderTest extends JsonTest {
         }
     }
 
-    @Test
-    void createTestProfiles() {
-        try {
-            Profile profile = new Profile("Empty");
-            JsonWriter writer = new JsonWriter("./data/testReaderEmptyProfile.json");
-            writer.open();
-            writer.write(profile);
-            writer.close();
-
-
-            Movie m1 = new Movie("Saw");
-            Movie m2 = new Movie("Titanic");
-            Movie m3 = new Movie("Mean Girls");
-            Movie m4 = new Movie("The Ring");
-            m2.addGenre("drama");
-            m2.addGenre("romance");
-            m3.addGenre("comedy");
-            m4.addGenre("horror");
-            m4.addGenre("thriller");
-
-            Profile profile1 = new Profile("Dylan");
-            profile1.addToWatchedList(m1);
-            profile1.addToWatchedList(m2);
-            profile1.addToRecommendedList(m3);
-            profile1.addToRecommendedList(m4);
-            JsonWriter writer1 = new JsonWriter("./data/testReaderGeneralProfile.json");
-            writer1.open();
-            writer1.write(profile1);
-            writer1.close();
-        } catch (IOException e) {
-            fail("Unexpected exception caught");
-        }
-    }
 
     @Test
+        // Citation: JsonSerializationDemo,
+        // VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     void testReaderEmptyProfile() {
         JsonReader reader = new JsonReader("./data/testReaderEmptyProfile.json");
         try {
@@ -71,6 +42,8 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
+        // Citation: JsonSerializationDemo,
+        // VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     void testReaderGeneralProfile() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralProfile.json");
         try {

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JsonTest {
+
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     protected void checkMovie(String title, ArrayList<String> genreList, int userRating, String streamingService,
                               Movie movie) {
         assertEquals(title, movie.getTitle());
@@ -20,4 +22,5 @@ public class JsonTest {
 
         }
     }
+
 }

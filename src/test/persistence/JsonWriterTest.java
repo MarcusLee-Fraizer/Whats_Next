@@ -13,18 +13,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class JsonWriterTest extends JsonTest {
 
     @Test
+        // Citation: JsonSerializationDemo,
+        // VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     void testWriterInvalidFile() {
         try {
             Profile profile = new Profile("Invalid");
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
-            fail("Expected IOException was caught");
+            fail("Expected IOException was not caught");
         } catch (IOException e) {
-            // pass
+            // expected
         }
     }
 
     @Test
+        // Citation: JsonSerializationDemo,
+        // VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     void testWriterEmptyProfile() {
         try {
             Profile profile = new Profile("Empty");
@@ -36,15 +40,17 @@ class JsonWriterTest extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterEmptyProfile.json");
             profile = reader.read();
             assertEquals("Empty", profile.getName());
-            assertEquals(0,profile.getWatchedMovies().size());
-            assertEquals(0,profile.getRecommendedMovies().size());
+            assertEquals(0, profile.getWatchedMovies().size());
+            assertEquals(0, profile.getRecommendedMovies().size());
         } catch (IOException e) {
-            fail("Unexpected exception caught");
+            fail("Unexpected IOException caught");
         }
     }
 
     @Test
-    void testWriterGeneralWorkroom() {
+        // Citation: JsonSerializationDemo,
+        // VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+    void testWriterGeneralProfile() {
         try {
             Profile profile = new Profile("Dylan");
             Movie m1 = new Movie("Saw");
@@ -78,13 +84,13 @@ class JsonWriterTest extends JsonTest {
             List<Movie> recommended = profile.getRecommendedMovies();
             assertEquals(2, watched.size());
             assertEquals(2, recommended.size());
-            checkMovie("Saw",g1,0,"Not Available",watched.get(0));
-            checkMovie("Titanic",g2,0,"Not Available",watched.get(1));
-            checkMovie("Mean Girls",g3,0,"Not Available",recommended.get(0));
-            checkMovie("The Ring",g4,0,"Not Available",recommended.get(1));
+            checkMovie("Saw", g1, 0, "Not Available", watched.get(0));
+            checkMovie("Titanic", g2, 0, "Not Available", watched.get(1));
+            checkMovie("Mean Girls", g3, 0, "Not Available", recommended.get(0));
+            checkMovie("The Ring", g4, 0, "Not Available", recommended.get(1));
 
         } catch (IOException e) {
-            fail("Unexpected exception caught");
+            fail("Unexpected IOException caught");
         }
     }
 }

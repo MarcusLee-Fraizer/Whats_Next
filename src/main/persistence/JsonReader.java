@@ -14,16 +14,19 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 
 // Represents a reader that reads a profile from JSON data stored in file
+// Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonReader {
     private String source;
 
     // EFFECTS: constructs reader to read from source file
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public JsonReader(String source) {
         this.source = source;
     }
 
     // EFFECTS: reads the profile from a file and returns it;
     // throws IOException if an error occurs reading data from file
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public Profile read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
@@ -31,6 +34,7 @@ public class JsonReader {
     }
 
     // EFFECTS: reads source file as string and returns it
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
@@ -42,6 +46,7 @@ public class JsonReader {
     }
 
     // EFFECTS: parses the profile from JSON object and returns it
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private Profile parseProfile(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         Profile profile = new Profile(name);
@@ -52,6 +57,7 @@ public class JsonReader {
     // MODIFIES: profile
     // EFFECTS: parses movie lists from JSON object and adds them to profile
     // watchedMovies and recommendedMovies
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private void addMovieLists(Profile profile, JSONObject jsonObject) {
         JSONArray jsonArrayWatched = jsonObject.getJSONArray("watched");
         for (Object json : jsonArrayWatched) {
@@ -70,6 +76,7 @@ public class JsonReader {
 
     // MODIFIES: profile
     // EFFECTS: parses movies from JSON object and adds them to given list
+    // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     private void addMovie(ArrayList<Movie> movies, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
         int userRating = jsonObject.getInt("userRating");
