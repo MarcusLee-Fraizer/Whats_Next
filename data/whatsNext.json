@@ -16,7 +16,7 @@
             ],
             "streamingService": "Not Available",
             "title": "SCREAM",
-            "userRating": 4
+            "userRating": 0
         },
         {
             "genres": [
@@ -41,79 +41,8 @@
             "streamingService": "Not Available",
             "title": "MISSION: IMPOSSIBLE",
             "userRating": 0
-        },
-        {
-            "genres": [
-                "HORROR",
-                "COMEDY",
-                "THRILLER"
-            ],
-            "streamingService": "PARAMOUNT+",
-            "title": "SCREAM (2022)",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "ANIMATION",
-                "COMEDY"
-            ],
-            "streamingService": "Not Available",
-            "title": "DETECTIVE PIKACHU",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "SUPERHERO",
-                "ACTION"
-            ],
-            "streamingService": "DISNEY+",
-            "title": "BLACK WIDOW",
-            "userRating": 3
         }
     ],
     "name": "Nick",
-    "recommended": [
-        {
-            "genres": [
-                "SCI-FI",
-                "HORROR"
-            ],
-            "streamingService": "Not Available",
-            "title": "THE THING",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "HORROR",
-                "COMEDY"
-            ],
-            "streamingService": "Not Available",
-            "title": "SCREAM 2",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "SUPERHERO",
-                "COMEDY"
-            ],
-            "streamingService": "Not Available",
-            "title": "DEADPOOL",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "ACTION",
-                "SUPERHERO"
-            ],
-            "streamingService": "Not Available",
-            "title": "THE BATMAN",
-            "userRating": 0
-        },
-        {
-            "genres": ["ACTION"],
-            "streamingService": "Not Available",
-            "title": "NO TIME TO DIE",
-            "userRating": 0
-        }
-    ]
+    "recommended": []
 }

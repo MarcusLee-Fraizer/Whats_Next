@@ -19,13 +19,37 @@ public class WhatsNextApp {
     private Scanner input;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    private static WhatsNextUI ui;
 
     // EFFECTS: runs What's Next application
     public WhatsNextApp() throws FileNotFoundException {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
+        ui = new WhatsNextUI(this);
         runWhatsNextApp();
     }
+
+    // MODIFIES: this, ui
+    // EFFECTS: sets ui to newUI and sets ui app to this
+    public void setUI(WhatsNextUI newUI) {
+        if (ui != newUI) {
+            if (ui != null) {
+                ui.removeApp();
+            }
+            ui = newUI;
+            ui.setApp(this);
+        }
+    }
+
+    // MODIFIES: this, ui
+    // EFFECTS: removes this from app and sets ui to null
+    public void removeUI() {
+        if (ui != null) {
+            ui.removeApp();
+            ui = null;
+        }
+    }
+
 
     // MODIFIES: this
     // EFFECTS: processes user input
@@ -69,9 +93,9 @@ public class WhatsNextApp {
         } else if (command.equals("NEW")) {
             getRecommendation();
         } else if (command.equals("SAVE")) {
-            saveProfile();
+
         } else if (command.equals("LOAD")) {
-            loadProfile();
+
         } else {
             System.out.println("Sorry we can't do that.");
         }
@@ -361,7 +385,7 @@ public class WhatsNextApp {
                 }
                 profile.addToRecommendedList(movie);
             }
-            for (Movie movie: uniqueMovies) {
+            for (Movie movie : uniqueMovies) {
                 System.out.println("Title: " + movie.getTitle());
                 System.out.println("Streaming service " + movie.getStreamingService());
             }
@@ -383,7 +407,7 @@ public class WhatsNextApp {
                 }
                 profile.addToRecommendedList(movie);
             }
-            for (Movie movie: uniqueMovies) {
+            for (Movie movie : uniqueMovies) {
                 System.out.println("Title: " + movie.getTitle());
                 System.out.println("Streaming service " + movie.getStreamingService());
             }
@@ -404,26 +428,20 @@ public class WhatsNextApp {
 
     // EFFECTS: saves the profile to file
     // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
-    private void saveProfile() {
-        try {
-            jsonWriter.open();
-            jsonWriter.write(profile);
-            jsonWriter.close();
-            System.out.println("Your changes were successfully saved!");
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file: " + JSON_STORE);
-        }
+    public void saveProfile() throws FileNotFoundException {
+        jsonWriter.open();
+        jsonWriter.write(profile);
+        jsonWriter.close();
+        System.out.println("Your changes were successfully saved!");
     }
+
 
     // MODIFIES: this
     // EFFECTS: loads profile from file
     // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
-    private void loadProfile() {
-        try {
-            profile = jsonReader.read();
-            System.out.println("Your profile was successfully loaded.");
-        } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
-        }
+    public void loadProfile() throws IOException {
+        profile = jsonReader.read();
+        System.out.println("Your profile was successfully loaded.");
     }
 }
+
