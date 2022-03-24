@@ -27,11 +27,6 @@ public class SearchTab extends Tab {
 
         placeTitle();
 
-        listModel = new DefaultListModel();
-        displayList = new JList(listModel);
-        display = new JScrollPane(displayList);
-        display.setPreferredSize(new Dimension(500, 500));
-
         placeButtons();
     }
 
@@ -100,7 +95,7 @@ public class SearchTab extends Tab {
     // EFFECTS: searches profiles watched list by given genre
     private void searchByGenre(String genre) {
         Profile profile = super.getAppUI().getProfile();
-        ArrayList<Movie> searchedList = profile.searchWatchedByGenre(genre);
+        ArrayList<Movie> searchedList = profile.searchWatchedByGenre(genre.toUpperCase());
 
         if (searchedList.isEmpty()) {
             actionText.setText("We could not find any movies in that genre...");
@@ -115,7 +110,7 @@ public class SearchTab extends Tab {
     // EFFECTS: searches profiles watched list by given title
     private void searchByTitle(String title) {
         Profile profile = super.getAppUI().getProfile();
-        Movie searchedMovie = profile.searchWatchedByTitle(title);
+        Movie searchedMovie = profile.searchWatchedByTitle(title.toUpperCase());
 
         if (searchedMovie == null) {
             actionText.setText("We could not find that movie...");
@@ -128,17 +123,21 @@ public class SearchTab extends Tab {
     // EFFECTS: displays given movie on display on GUI
     private void displayMovie(Movie movie) {
 
+        listModel = new DefaultListModel();
+
         listModel.addElement("Title: " + movie.getTitle());
         listModel.addElement("Genres: " + movie.getGenres());
         listModel.addElement("Rating: " + movie.getUserRating());
         listModel.addElement("Streaming Service: " + movie.getStreamingService());
         listModel.addElement(" ");
 
-
+        displayList = new JList(listModel);
         displayList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         displayList.setLayoutOrientation(JList.VERTICAL);
         displayList.setVisibleRowCount(5);
 
+        display = new JScrollPane(displayList);
+        display.setPreferredSize(new Dimension(500, 500));
         this.add(display);
     }
 

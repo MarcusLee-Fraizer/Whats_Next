@@ -134,6 +134,11 @@ public class WhatsNextUI extends JFrame {
         return profile;
     }
 
+    // EFFECTS: return recommendation
+    public Recommendation getRecommendation() {
+        return recommendation;
+    }
+
     // EFFECTS: saves the profile to file
     // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public void saveProfile() throws FileNotFoundException {

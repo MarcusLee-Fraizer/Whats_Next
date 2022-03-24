@@ -9,6 +9,7 @@ import java.util.List;
 
 // Represents the recommended tab of the app gui
 public class RecommendedTab extends Tab {
+    JLabel title;
     private List<Movie> recommendedMovies;
     private JList displayList;
     private DefaultListModel listModel;
@@ -17,8 +18,23 @@ public class RecommendedTab extends Tab {
     public RecommendedTab(WhatsNextUI appUI) {
         super(appUI);
 
+        setLayout(new GridLayout(3,1));
+
+        placeTitle();
+
         recommendedMovies = super.getAppUI().getRecommendedMovies();
         displayWatchedList(recommendedMovies);
+
+        // TODO: Maybe implement refresh button
+    }
+
+    // EFFECTS: places title at top of console
+    // Citation: LongFormProblemStarters - SmartHome, VCS link:
+    // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
+    private void placeTitle() {
+        title = new JLabel("Recommended Movies", JLabel.CENTER);
+        title.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 3);
+        this.add(title);
     }
 
     // EFFECTS: displays watched movie list on the recommended tab of GUI on a scroll pane
