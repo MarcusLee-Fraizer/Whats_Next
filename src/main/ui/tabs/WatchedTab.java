@@ -14,7 +14,7 @@ public class WatchedTab extends Tab {
     private JList displayList;
     private DefaultListModel listModel;
 
-    // EFFECTS: constructs a watched tab for the app UI that displays a profiles watched movies
+    // EFFECTS: constructs a watched tab for the app UI that displays a profile's watched movies
     public WatchedTab(WhatsNextUI appUI) {
         super(appUI);
 

@@ -20,7 +20,7 @@ public class WhatsNextUI extends JFrame {
     public static final int RECOMMENDED_TAB_INDEX = 2;
     public static final int SEARCH_TAB_INDEX = 3;
     public static final int NEW_MOVIE_TAB_INDEX = 4;
-    public static final int ADD_MOVIE_TAB_INDEX = 2;
+    public static final int ADD_MOVIE_TAB_INDEX = 5;
     public static final int RATINGS_TAB_INDEX = 6;
 
 
@@ -129,6 +129,11 @@ public class WhatsNextUI extends JFrame {
         return profile.getRecommendedMovies();
     }
 
+    // EFFECTS: returns profile
+    public Profile getProfile() {
+        return profile;
+    }
+
     // EFFECTS: saves the profile to file
     // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public void saveProfile() throws FileNotFoundException {
@@ -161,24 +166,24 @@ public class WhatsNextUI extends JFrame {
     private void loadTabs() {
         JPanel homeTab = new HomeTab(this);
         JPanel watchedTab = new WatchedTab(this);
-//        JPanel recommendedTab = new RecommendedTab(this);
-//        JPanel searchTab = new SearchTab(this);
+        JPanel recommendedTab = new RecommendedTab(this);
+        JPanel searchTab = new SearchTab(this);
 //        JPanel newMovieTab = new NewMovieTab(this);
-        JPanel addMovieTab = new AddMovieTab(this);
+//        JPanel addMovieTab = new AddMovieTab(this);
 //        JPanel ratingsTab = new RatingsTab(this);
 
         sidebar.add(homeTab, HOME_TAB_INDEX);
         sidebar.setTitleAt(HOME_TAB_INDEX, "Home");
         sidebar.add(watchedTab, WATCHED_TAB_INDEX);
         sidebar.setTitleAt(WATCHED_TAB_INDEX, "Watched");
-//        sidebar.add(recommendedTab, RECOMMENDED_TAB_INDEX);
-//        sidebar.setTitleAt(RECOMMENDED_TAB_INDEX, "Recommended");
-//        sidebar.add(searchTab, SEARCH_TAB_INDEX);
-//        sidebar.setTitleAt(SEARCH_TAB_INDEX, "Search");
+        sidebar.add(recommendedTab, RECOMMENDED_TAB_INDEX);
+        sidebar.setTitleAt(RECOMMENDED_TAB_INDEX, "Recommended");
+        sidebar.add(searchTab, SEARCH_TAB_INDEX);
+        sidebar.setTitleAt(SEARCH_TAB_INDEX, "Search");
 //        sidebar.add(newMovieTab, NEW_MOVIE_TAB_INDEX);
 //        sidebar.setTitleAt(NEW_MOVIE_TAB_INDEX, "New Movie");
-        sidebar.add(addMovieTab, ADD_MOVIE_TAB_INDEX);
-        sidebar.setTitleAt(ADD_MOVIE_TAB_INDEX, "Add Movie");
+//        sidebar.add(addMovieTab, ADD_MOVIE_TAB_INDEX);
+//        sidebar.setTitleAt(ADD_MOVIE_TAB_INDEX, "Add Movie");
 //        sidebar.add(ratingsTab, RATINGS_TAB_INDEX);
 //        sidebar.setTitleAt(RATINGS_TAB_INDEX, "Ratings");
     }
