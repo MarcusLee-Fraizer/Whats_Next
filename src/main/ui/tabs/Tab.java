@@ -29,7 +29,7 @@ public abstract class Tab extends JPanel {
         return p;
     }
 
-    //EFFECTS: returns the application ui for this tab
+    // EFFECTS: returns the application ui for this tab
     public WhatsNextUI getAppUI() {
         return appUI;
     }

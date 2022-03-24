@@ -1,6 +1,5 @@
 package ui.tabs;
 
-import ui.WhatsNextApp;
 import ui.WhatsNextUI;
 
 import javax.swing.*;
@@ -8,11 +7,13 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
+// Represents the home tab of the UI.
 public class HomeTab extends Tab {
     private String initTitle;
     private JLabel actionText;
 
-    //EFFECTS: constructs a home tab for console with buttons and a greeting
+    // EFFECTS: constructs a home tab for console with buttons and a Title
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     public HomeTab(WhatsNextUI appUI) {
@@ -26,38 +27,38 @@ public class HomeTab extends Tab {
         placeHomeButtons();
     }
 
-    //EFFECTS: places title at top of console
+    // EFFECTS: places title at top of console
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     private void placeTitle() {
         actionText = new JLabel(initTitle, JLabel.CENTER);
-        actionText.setSize(WIDTH, HEIGHT / 3);
+        actionText.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 3);
         this.add(actionText);
     }
 
-    //EFFECTS: creates Arrive and Leave buttons that change greeting message when clicked
+    // EFFECTS: creates Save Profile and Load Profile buttons that change title message when clicked
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     private void placeHomeButtons() {
         JButton saveButton = new JButton("Save Profile");
         JButton loadButton = new JButton("Load Profile");
-        WhatsNextApp app = super.getAppUI().getApp();
 
         JPanel buttonRow = formatButtonRow(saveButton);
         buttonRow.add(loadButton);
-        buttonRow.setSize(WIDTH, HEIGHT / 6);
+        buttonRow.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 6);
 
-        saveButtonAction(saveButton,app);
+        saveButtonAction(saveButton);
 
-        loadButtonAction(loadButton,app);
+        loadButtonAction(loadButton);
 
         this.add(buttonRow);
     }
 
-    private void saveButtonAction(JButton saveButton, WhatsNextApp app) {
+    // EFFECTS: saves current profile, with recommended and watched lists, and changes title message
+    private void saveButtonAction(JButton saveButton) {
         saveButton.addActionListener(e -> {
             try {
-                app.saveProfile();
+                super.getAppUI().saveProfile();
                 actionText.setText("Profile saved successfully!");
             } catch (FileNotFoundException f) {
                 actionText.setText("Unable to save profile :(");
@@ -66,10 +67,11 @@ public class HomeTab extends Tab {
         );
     }
 
-    private void loadButtonAction(JButton loadButton, WhatsNextApp app) {
+    // EFFECTS: loads previous profile, with recommended and watched lists, and changes title message
+    private void loadButtonAction(JButton loadButton) {
         loadButton.addActionListener(e -> {
             try {
-                app.loadProfile();
+                super.getAppUI().loadProfile();
                 actionText.setText("Profile was loaded!");
             } catch (IOException io) {
                 actionText.setText("Unable to load profile :(");
