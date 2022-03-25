@@ -20,12 +20,13 @@ public class NewMovieTab extends Tab {
     private DefaultListModel listModel;
     private JList displayList;
     private JScrollPane display;
+    private JTextField searchBar;
 
     // EFFECTS: constructs a New Movie tab with a title, two search buttons, and a display
     public NewMovieTab(WhatsNextUI appUI) {
         super(appUI);
 
-        setLayout(new GridLayout(15, 10));
+        setLayout(new GridLayout(15, 100));
 
         placeTitle();
 
@@ -65,7 +66,7 @@ public class NewMovieTab extends Tab {
     // to enter a genre for recommendation
     private void genreButtonAction(JButton genreButton) {
         genreButton.addActionListener(e -> {
-            JTextField searchBar = new JTextField(5);
+            searchBar = new JTextField(5);
             JLabel label = new JLabel(GENRE_PROMPT);
             label.setLabelFor(searchBar);
             searchBar.addActionListener(e1 -> {
@@ -85,7 +86,7 @@ public class NewMovieTab extends Tab {
     // to enter a title for recommendation
     private void titleButtonAction(JButton titleButton) {
         titleButton.addActionListener(e -> {
-            JTextField searchBar = new JTextField(5);
+            searchBar = new JTextField(5);
             JLabel label = new JLabel(TITLE_PROMPT);
             label.setLabelFor(searchBar);
             searchBar.addActionListener(e1 -> {
