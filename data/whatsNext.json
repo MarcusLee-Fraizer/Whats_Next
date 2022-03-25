@@ -16,7 +16,7 @@
             ],
             "streamingService": "Not Available",
             "title": "SCREAM",
-            "userRating": 0
+            "userRating": 4
         },
         {
             "genres": [
@@ -65,6 +65,21 @@
             "streamingService": "Not Available",
             "title": "POKEMON: THE MOVIE",
             "userRating": 0
+        },
+        {
+            "genres": [
+                "THRILLER",
+                "DRAMA"
+            ],
+            "streamingService": "Not Available",
+            "title": "FIGHT CLUB",
+            "userRating": 4
+        },
+        {
+            "genres": ["COMEDY"],
+            "streamingService": "Not Available",
+            "title": "CRAZY RICH ASIANS",
+            "userRating": 2
         }
     ],
     "name": "Nick",

@@ -135,15 +135,19 @@ public class NewMovieTab extends Tab {
         } else {
             ArrayList<Movie> newMovies = recommendation.recommendBySimilarMovie(watchedMovie);
 
-            actionText.setText("We recommend these movies:");
-            for (Movie movie : newMovies) {
-                if (!uniqueMovies.contains(movie)) {
-                    uniqueMovies.add(movie);
+            if (!newMovies.isEmpty()) {
+                actionText.setText("We recommend these movies:");
+                for (Movie movie : newMovies) {
+                    if (!uniqueMovies.contains(movie)) {
+                        uniqueMovies.add(movie);
+                    }
+                    profile.addToRecommendedList(movie);
                 }
-                profile.addToRecommendedList(movie);
-            }
-            for (Movie movie : uniqueMovies) {
-                displayMovie(movie);
+                for (Movie movie : uniqueMovies) {
+                    displayMovie(movie);
+                }
+            } else {
+                actionText.setText("Sorry, we have no recommendations for you :(");
             }
         }
     }
