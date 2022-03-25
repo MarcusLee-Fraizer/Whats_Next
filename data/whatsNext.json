@@ -44,5 +44,39 @@
         }
     ],
     "name": "Nick",
-    "recommended": []
+    "recommended": [
+        {
+            "genres": [
+                "ACTION",
+                "SUPERHERO"
+            ],
+            "streamingService": "Not Available",
+            "title": "THE BATMAN",
+            "userRating": 0
+        },
+        {
+            "genres": ["ACTION"],
+            "streamingService": "Not Available",
+            "title": "NO TIME TO DIE",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "SCI-FI",
+                "HORROR"
+            ],
+            "streamingService": "Not Available",
+            "title": "THE THING",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "HORROR",
+                "COMEDY"
+            ],
+            "streamingService": "Not Available",
+            "title": "SCREAM 2",
+            "userRating": 0
+        }
+    ]
 }

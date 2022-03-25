@@ -14,19 +14,20 @@ public class WatchedTab extends Tab {
     private List<Movie> watchedMovies;
     private JList displayList;
     private DefaultListModel listModel;
+    private JScrollPane listScrollPane;
 
     // EFFECTS: constructs a watched tab for the app UI that displays a profile's watched movies
     public WatchedTab(WhatsNextUI appUI) {
         super(appUI);
 
         setLayout(new GridLayout(3,1));
-        
+
         placeTitle();
 
         watchedMovies = super.getAppUI().getWatchedMovies();
         displayWatchedList(watchedMovies);
 
-        // TODO: Maybe implement refresh button
+        placeRefreshButton();
     }
 
     // EFFECTS: places title at top of console
@@ -56,9 +57,31 @@ public class WatchedTab extends Tab {
         displayList.setLayoutOrientation(JList.VERTICAL);
         displayList.setVisibleRowCount(5);
 
-        JScrollPane listScrollPane = new JScrollPane(displayList);
+        listScrollPane = new JScrollPane(displayList);
         listScrollPane.setPreferredSize(new Dimension(500, 500));
 
-        this.add(listScrollPane);
+        this.add(listScrollPane, 1);
+    }
+
+    // EFFECTS: places a refresh button that updates the display of movies when pressed
+    private void placeRefreshButton() {
+        JButton refreshButton = new JButton("Refresh");
+
+        JPanel buttonRow = formatButtonRow(refreshButton);
+
+        buttonRow.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 6);
+
+        refreshAction(refreshButton);
+
+        this.add(buttonRow);
+    }
+
+    // EFFECTS: updates list of movies displayed
+    private void refreshAction(JButton refreshButton) {
+        refreshButton.addActionListener(e -> {
+            this.remove(listScrollPane);
+            watchedMovies = super.getAppUI().getWatchedMovies();
+            this.displayWatchedList(watchedMovies);
+        });
     }
 }

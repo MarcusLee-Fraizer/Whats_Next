@@ -145,7 +145,6 @@ public class WhatsNextUI extends JFrame {
         jsonWriter.open();
         jsonWriter.write(profile);
         jsonWriter.close();
-        System.out.println("Your changes were successfully saved!");
     }
 
 
@@ -154,7 +153,6 @@ public class WhatsNextUI extends JFrame {
     // Citation: JsonSerializationDemo, VCS link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
     public void loadProfile() throws IOException {
         profile = jsonReader.read();
-        System.out.println("Your profile was successfully loaded.");
     }
 
     // EFFECTS: returns sidebar of this UI
@@ -173,7 +171,7 @@ public class WhatsNextUI extends JFrame {
         JPanel watchedTab = new WatchedTab(this);
         JPanel recommendedTab = new RecommendedTab(this);
         JPanel searchTab = new SearchTab(this);
-//        JPanel newMovieTab = new NewMovieTab(this);
+        JPanel newMovieTab = new NewMovieTab(this);
 //        JPanel addMovieTab = new AddMovieTab(this);
 //        JPanel ratingsTab = new RatingsTab(this);
 
@@ -185,8 +183,8 @@ public class WhatsNextUI extends JFrame {
         sidebar.setTitleAt(RECOMMENDED_TAB_INDEX, "Recommended");
         sidebar.add(searchTab, SEARCH_TAB_INDEX);
         sidebar.setTitleAt(SEARCH_TAB_INDEX, "Search");
-//        sidebar.add(newMovieTab, NEW_MOVIE_TAB_INDEX);
-//        sidebar.setTitleAt(NEW_MOVIE_TAB_INDEX, "New Movie");
+        sidebar.add(newMovieTab, NEW_MOVIE_TAB_INDEX);
+        sidebar.setTitleAt(NEW_MOVIE_TAB_INDEX, "New Movie");
 //        sidebar.add(addMovieTab, ADD_MOVIE_TAB_INDEX);
 //        sidebar.setTitleAt(ADD_MOVIE_TAB_INDEX, "Add Movie");
 //        sidebar.add(ratingsTab, RATINGS_TAB_INDEX);

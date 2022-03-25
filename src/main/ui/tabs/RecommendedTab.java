@@ -13,6 +13,7 @@ public class RecommendedTab extends Tab {
     private List<Movie> recommendedMovies;
     private JList displayList;
     private DefaultListModel listModel;
+    private JScrollPane listScrollPane;
 
     // EFFECTS: constructs a recommended tab for the app UI that displays a profile's recommended movies
     public RecommendedTab(WhatsNextUI appUI) {
@@ -23,9 +24,9 @@ public class RecommendedTab extends Tab {
         placeTitle();
 
         recommendedMovies = super.getAppUI().getRecommendedMovies();
-        displayWatchedList(recommendedMovies);
+        displayRecommendedList(recommendedMovies);
 
-        // TODO: Maybe implement refresh button
+        placeRefreshButton();
     }
 
     // EFFECTS: places title at top of console
@@ -38,7 +39,7 @@ public class RecommendedTab extends Tab {
     }
 
     // EFFECTS: displays watched movie list on the recommended tab of GUI on a scroll pane
-    private void displayWatchedList(List<Movie> movies) {
+    private void displayRecommendedList(List<Movie> movies) {
 
         listModel = new DefaultListModel();
 
@@ -55,8 +56,32 @@ public class RecommendedTab extends Tab {
         displayList.setLayoutOrientation(JList.VERTICAL);
         displayList.setVisibleRowCount(5);
 
-        JScrollPane listScrollPane = new JScrollPane(displayList);
+        listScrollPane = new JScrollPane(displayList);
         listScrollPane.setPreferredSize(new Dimension(500, 500));
-        this.add(listScrollPane);
+        this.add(listScrollPane, 1);
+    }
+
+    // EFFECTS: places a refresh button that updates the display of movies when pressed
+    private void placeRefreshButton() {
+        JButton refreshButton = new JButton("Refresh");
+
+        JPanel buttonRow = formatButtonRow(refreshButton);
+
+        buttonRow.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 6);
+
+        refreshAction(refreshButton);
+
+        this.add(buttonRow);
+    }
+
+    // EFFECTS: updates list of movies displayed
+    private void refreshAction(JButton refreshButton) {
+        refreshButton.addActionListener(e -> {
+            recommendedMovies = super.getAppUI().getRecommendedMovies();
+            if (!recommendedMovies.isEmpty()) {
+                this.remove(listScrollPane);
+                this.displayRecommendedList(recommendedMovies);
+            }
+        });
     }
 }
