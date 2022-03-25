@@ -10,7 +10,7 @@ import java.io.IOException;
 
 // Represents the home tab of the UI.
 public class HomeTab extends Tab {
-    protected String initTitle = "What's Next";
+    private static final String INIT_TITLE = "What's Next";
     private JLabel actionText;
 
     // EFFECTS: constructs a home tab for console with buttons and a Title
@@ -30,7 +30,7 @@ public class HomeTab extends Tab {
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     private void placeTitle() {
-        actionText = new JLabel(initTitle, JLabel.CENTER);
+        actionText = new JLabel(INIT_TITLE, JLabel.CENTER);
         actionText.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 3);
         this.add(actionText);
     }

@@ -11,9 +11,10 @@ import java.util.ArrayList;
 
 // Represents the New Movie Tab on the GUI, for movie recommendations
 public class NewMovieTab extends Tab {
-    protected String searchPrompt = "Do you want a recommendation based on a GENRE or MOVIE in your watched list?";
-    protected String titlePrompt = "Title of the movie you want to base your recommendations on:";
-    protected String genrePrompt = "What genre would you like to see?";
+    private static final String
+            SEARCH_PROMPT = "Do you want a recommendation based on a GENRE or MOVIE in your watched list?";
+    private static final String TITLE_PROMPT = "Title of the movie you want to base your recommendations on:";
+    private static final String GENRE_PROMPT = "What genre would you like to see?";
 
     private JLabel actionText;
     private DefaultListModel listModel;
@@ -36,7 +37,7 @@ public class NewMovieTab extends Tab {
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     private void placeTitle() {
-        actionText = new JLabel(searchPrompt, JLabel.CENTER);
+        actionText = new JLabel(SEARCH_PROMPT, JLabel.CENTER);
         actionText.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 3);
         this.add(actionText);
     }
@@ -65,7 +66,7 @@ public class NewMovieTab extends Tab {
     private void genreButtonAction(JButton genreButton) {
         genreButton.addActionListener(e -> {
             JTextField searchBar = new JTextField(5);
-            JLabel label = new JLabel(genrePrompt);
+            JLabel label = new JLabel(GENRE_PROMPT);
             label.setLabelFor(searchBar);
             searchBar.addActionListener(e1 -> {
                 JTextField source = (JTextField) e1.getSource();
@@ -85,7 +86,7 @@ public class NewMovieTab extends Tab {
     private void titleButtonAction(JButton titleButton) {
         titleButton.addActionListener(e -> {
             JTextField searchBar = new JTextField(5);
-            JLabel label = new JLabel(titlePrompt);
+            JLabel label = new JLabel(TITLE_PROMPT);
             label.setLabelFor(searchBar);
             searchBar.addActionListener(e1 -> {
                 JTextField source = (JTextField) e1.getSource();

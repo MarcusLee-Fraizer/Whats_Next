@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 // Represents the search tab of the GUI
 public class SearchTab extends Tab {
-    protected String searchPrompt = "Would you like to search by TITLE or GENRE?";
-    protected String titlePrompt = "What is the title of the movie?";
-    protected String genrePrompt = "What genre would you like to search for?";
+    private static final String SEARCH_PROMPT = "Would you like to search by TITLE or GENRE?";
+    private static final String TITLE_PROMPT = "What is the title of the movie?";
+    private static final String GENRE_PROMPT = "What genre would you like to search for?";
 
     private JLabel actionText;
     private DefaultListModel listModel;
@@ -35,7 +35,7 @@ public class SearchTab extends Tab {
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     private void placeTitle() {
-        actionText = new JLabel(searchPrompt, JLabel.CENTER);
+        actionText = new JLabel(SEARCH_PROMPT, JLabel.CENTER);
         actionText.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 3);
         this.add(actionText);
     }
@@ -64,7 +64,7 @@ public class SearchTab extends Tab {
     private void genreButtonAction(JButton genreButton) {
         genreButton.addActionListener(e -> {
             JTextField searchBar = new JTextField(5);
-            JLabel label = new JLabel(genrePrompt);
+            JLabel label = new JLabel(GENRE_PROMPT);
             label.setLabelFor(searchBar);
             searchBar.addActionListener(e1 -> {
                 JTextField source = (JTextField) e1.getSource();
@@ -84,7 +84,7 @@ public class SearchTab extends Tab {
     private void titleButtonAction(JButton titleButton) {
         titleButton.addActionListener(e -> {
             JTextField searchBar = new JTextField(5);
-            JLabel label = new JLabel(titlePrompt);
+            JLabel label = new JLabel(TITLE_PROMPT);
             label.setLabelFor(searchBar);
             searchBar.addActionListener(e1 -> {
                 JTextField source = (JTextField) e1.getSource();

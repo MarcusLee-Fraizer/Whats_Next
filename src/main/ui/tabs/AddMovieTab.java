@@ -7,13 +7,13 @@ import ui.WhatsNextUI;
 import javax.swing.*;
 import java.awt.*;
 
-
+// Represents the Add Movie tab on GUI, that adds movies to watched list
 public class AddMovieTab extends Tab {
-    protected String initPrompt = "Add a Movie to Your Watched List";
-    protected String titlePrompt = "What is the title of the movie?";
-    protected String genrePrompt = "What genre is the movie in?";
-    protected String additionalPrompt = "Does this movie have another genre?";
-    protected String streamingServicePrompt = "What streaming service is the movie on?";
+    private static final String INIT_PROMPT = "Add a Movie to Your Watched List";
+    private static final String TITLE_PROMPT = "What is the title of the movie?";
+    private static final String GENRE_PROMPT = "What genre is the movie in?";
+    private static final String ADDITIONAL_PROMPT = "Does this movie have another genre?";
+    private static final String STREAMING_SERVICE_PROMPT = "What streaming service is the movie on?";
 
     private JLabel actionLabel;
     private JTextField titleBar;
@@ -21,7 +21,6 @@ public class AddMovieTab extends Tab {
     private JTextField additionalBar;
     private JTextField streamingBar;
     private JPanel panel;
-
 
     public AddMovieTab(WhatsNextUI appUI) {
         super(appUI);
@@ -36,7 +35,7 @@ public class AddMovieTab extends Tab {
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     private void placeTitle() {
-        actionLabel = new JLabel(initPrompt, JLabel.CENTER);
+        actionLabel = new JLabel(INIT_PROMPT, JLabel.CENTER);
         actionLabel.setSize(super.getAppUI().WIDTH, super.getAppUI().HEIGHT / 3);
         this.add(actionLabel);
     }
@@ -48,23 +47,23 @@ public class AddMovieTab extends Tab {
         additionalBar = new JTextField(10);
         streamingBar = new JTextField(10);
 
-        createTextPanel(titleBar, titlePrompt);
-        createTextPanel(genreBar, genrePrompt);
-        createTextPanel(additionalBar, additionalPrompt);
-        createTextPanel(streamingBar, streamingServicePrompt);
+        createTextPanel(titleBar, TITLE_PROMPT);
+        createTextPanel(genreBar, GENRE_PROMPT);
+        createTextPanel(additionalBar, ADDITIONAL_PROMPT);
+        createTextPanel(streamingBar, STREAMING_SERVICE_PROMPT);
     }
 
     // EFFECTS: returns a panel with a label of given text and a standard text field
     public void createTextPanel(JTextField textField, String text) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout());
+        JPanel textPanel = new JPanel();
+        textPanel.setLayout(new FlowLayout());
 
         JLabel label = new JLabel(text);
 
-        panel.add(label);
-        panel.add(textField);
+        textPanel.add(label);
+        textPanel.add(textField);
 
-        this.add(panel);
+        this.add(textPanel);
     }
 
     // EFFECTS: places an add movie button that adds a movie to the watched list
@@ -141,7 +140,7 @@ public class AddMovieTab extends Tab {
             this.remove(panel);
         }
         panel = new JPanel();
-        panel.setLayout(new GridLayout(2,1));
+        panel.setLayout(new GridLayout(2, 1));
         JLabel label = new JLabel("The following movie was added to your watched list:");
 
         DefaultListModel listModel = new DefaultListModel();

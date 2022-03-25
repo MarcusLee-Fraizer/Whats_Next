@@ -9,7 +9,7 @@ import java.util.List;
 
 // Represents the recommended tab of the app gui
 public class RecommendedTab extends Tab {
-    JLabel title;
+    private JLabel title;
     private List<Movie> recommendedMovies;
     private JList displayList;
     private DefaultListModel listModel;
@@ -19,7 +19,7 @@ public class RecommendedTab extends Tab {
     public RecommendedTab(WhatsNextUI appUI) {
         super(appUI);
 
-        setLayout(new GridLayout(3,1));
+        setLayout(new GridLayout(3, 1));
 
         placeTitle();
 
@@ -43,10 +43,9 @@ public class RecommendedTab extends Tab {
 
         listModel = new DefaultListModel();
 
-        for (Movie movie: movies) {
+        for (Movie movie : movies) {
             listModel.addElement("Title: " + movie.getTitle());
             listModel.addElement("Genres: " + movie.getGenres());
-            listModel.addElement("Rating: " + movie.getUserRating());
             listModel.addElement("Streaming Service: " + movie.getStreamingService());
             listModel.addElement(" ");
         }

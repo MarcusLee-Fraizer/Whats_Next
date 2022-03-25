@@ -173,7 +173,7 @@ public class WhatsNextUI extends JFrame {
         JPanel searchTab = new SearchTab(this);
         JPanel newMovieTab = new NewMovieTab(this);
         JPanel addMovieTab = new AddMovieTab(this);
-//        JPanel ratingsTab = new RatingsTab(this);
+        JPanel ratingsTab = new RatingsTab(this);
 
         sidebar.add(homeTab, HOME_TAB_INDEX);
         sidebar.setTitleAt(HOME_TAB_INDEX, "Home");
@@ -187,8 +187,8 @@ public class WhatsNextUI extends JFrame {
         sidebar.setTitleAt(NEW_MOVIE_TAB_INDEX, "New Movie");
         sidebar.add(addMovieTab, ADD_MOVIE_TAB_INDEX);
         sidebar.setTitleAt(ADD_MOVIE_TAB_INDEX, "Add Movie");
-//        sidebar.add(ratingsTab, RATINGS_TAB_INDEX);
-//        sidebar.setTitleAt(RATINGS_TAB_INDEX, "Ratings");
+        sidebar.add(ratingsTab, RATINGS_TAB_INDEX);
+        sidebar.setTitleAt(RATINGS_TAB_INDEX, "Ratings");
     }
 
 }
