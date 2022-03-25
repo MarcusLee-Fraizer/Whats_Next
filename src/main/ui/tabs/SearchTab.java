@@ -71,7 +71,10 @@ public class SearchTab extends Tab {
                 String genre = source.getText();
                 searchByGenre(genre);
             });
-            this.add(searchBar);
+            JPanel panel = new JPanel();
+            panel.add(label);
+            panel.add(searchBar);
+            this.add(panel);
         });
     }
 
@@ -88,7 +91,10 @@ public class SearchTab extends Tab {
                 String title = source.getText();
                 searchByTitle(title);
             });
-            this.add(searchBar);
+            JPanel panel = new JPanel();
+            panel.add(label);
+            panel.add(searchBar);
+            this.add(panel);
         });
     }
 

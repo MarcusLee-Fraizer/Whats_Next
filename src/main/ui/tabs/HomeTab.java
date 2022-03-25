@@ -10,7 +10,7 @@ import java.io.IOException;
 
 // Represents the home tab of the UI.
 public class HomeTab extends Tab {
-    private String initTitle = "What's Next";
+    protected String initTitle = "What's Next";
     private JLabel actionText;
 
     // EFFECTS: constructs a home tab for console with buttons and a Title

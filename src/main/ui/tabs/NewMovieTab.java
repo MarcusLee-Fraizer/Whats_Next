@@ -72,7 +72,10 @@ public class NewMovieTab extends Tab {
                 String genre = source.getText();
                 recommendGenre(genre);
             });
-            this.add(searchBar);
+            JPanel panel = new JPanel();
+            panel.add(label);
+            panel.add(searchBar);
+            this.add(panel);
         });
     }
 
@@ -89,7 +92,10 @@ public class NewMovieTab extends Tab {
                 String title = source.getText();
                 recommendTitle(title);
             });
-            this.add(searchBar);
+            JPanel panel = new JPanel();
+            panel.add(label);
+            panel.add(searchBar);
+            this.add(panel);
         });
     }
 

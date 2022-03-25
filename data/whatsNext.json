@@ -41,25 +41,34 @@
             "streamingService": "Not Available",
             "title": "MISSION: IMPOSSIBLE",
             "userRating": 0
+        },
+        {
+            "genres": [
+                "SCI-FI",
+                "ADVENTURE"
+            ],
+            "streamingService": "HBOMAX",
+            "title": "DUNE",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "FAMILY",
+                "COMEDY"
+            ],
+            "streamingService": "DISNEY+",
+            "title": "HOCUS POCUS",
+            "userRating": 0
+        },
+        {
+            "genres": ["ANIMATION"],
+            "streamingService": "Not Available",
+            "title": "POKEMON: THE MOVIE",
+            "userRating": 0
         }
     ],
     "name": "Nick",
     "recommended": [
-        {
-            "genres": [
-                "ACTION",
-                "SUPERHERO"
-            ],
-            "streamingService": "Not Available",
-            "title": "THE BATMAN",
-            "userRating": 0
-        },
-        {
-            "genres": ["ACTION"],
-            "streamingService": "Not Available",
-            "title": "NO TIME TO DIE",
-            "userRating": 0
-        },
         {
             "genres": [
                 "SCI-FI",
@@ -76,6 +85,30 @@
             ],
             "streamingService": "Not Available",
             "title": "SCREAM 2",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "SUPERHERO",
+                "COMEDY"
+            ],
+            "streamingService": "Not Available",
+            "title": "DEADPOOL",
+            "userRating": 0
+        },
+        {
+            "genres": [
+                "ACTION",
+                "SUPERHERO"
+            ],
+            "streamingService": "Not Available",
+            "title": "THE BATMAN",
+            "userRating": 0
+        },
+        {
+            "genres": ["ACTION"],
+            "streamingService": "Not Available",
+            "title": "NO TIME TO DIE",
             "userRating": 0
         }
     ]
