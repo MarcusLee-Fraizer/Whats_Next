@@ -39,4 +39,15 @@ my recommendation and watched lists.
 recommendation and watched lists to my current 
 profile.
 
+## Phase 4: Task 2
+
+**Examples of logged events:**
+- Mon Mar 28 15:00:14 PDT 2022 
+PIRATES OF THE CARRIBEAN was added to the Watched List.
+- Mon Mar 28 15:00:23 PDT 2022
+DEADPOOL was added to the Recommended List.
+- Mon Mar 28 15:00:31 PDT 2022
+User has changed their rating of SCREAM.
+
+
   
