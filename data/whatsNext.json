@@ -16,7 +16,7 @@
             ],
             "streamingService": "Not Available",
             "title": "SCREAM",
-            "userRating": 4
+            "userRating": 0
         },
         {
             "genres": [
@@ -44,87 +44,14 @@
         },
         {
             "genres": [
-                "SCI-FI",
-                "ADVENTURE"
-            ],
-            "streamingService": "HBOMAX",
-            "title": "DUNE",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "FAMILY",
-                "COMEDY"
+                "COMEDY",
+                "FAMILY"
             ],
             "streamingService": "DISNEY+",
             "title": "HOCUS POCUS",
             "userRating": 0
-        },
-        {
-            "genres": ["ANIMATION"],
-            "streamingService": "Not Available",
-            "title": "POKEMON: THE MOVIE",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "THRILLER",
-                "DRAMA"
-            ],
-            "streamingService": "Not Available",
-            "title": "FIGHT CLUB",
-            "userRating": 4
-        },
-        {
-            "genres": ["COMEDY"],
-            "streamingService": "Not Available",
-            "title": "CRAZY RICH ASIANS",
-            "userRating": 2
         }
     ],
     "name": "Nick",
-    "recommended": [
-        {
-            "genres": [
-                "SCI-FI",
-                "HORROR"
-            ],
-            "streamingService": "Not Available",
-            "title": "THE THING",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "HORROR",
-                "COMEDY"
-            ],
-            "streamingService": "Not Available",
-            "title": "SCREAM 2",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "SUPERHERO",
-                "COMEDY"
-            ],
-            "streamingService": "Not Available",
-            "title": "DEADPOOL",
-            "userRating": 0
-        },
-        {
-            "genres": [
-                "ACTION",
-                "SUPERHERO"
-            ],
-            "streamingService": "Not Available",
-            "title": "THE BATMAN",
-            "userRating": 0
-        },
-        {
-            "genres": ["ACTION"],
-            "streamingService": "Not Available",
-            "title": "NO TIME TO DIE",
-            "userRating": 0
-        }
-    ]
+    "recommended": []
 }

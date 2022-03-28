@@ -11,7 +11,7 @@ import java.awt.*;
 public abstract class Tab extends JPanel {
     private final WhatsNextUI appUI;
 
-    //REQUIRES: application ui that holds this tab
+    // REQUIRES: application ui that holds this tab
     // Citation: LongFormProblemStarters - SmartHome, VCS link:
     // https://github.students.cs.ubc.ca/CPSC210/LongFormProblemStarters.git
     public Tab(WhatsNextUI appUI) {

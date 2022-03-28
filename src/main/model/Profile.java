@@ -104,6 +104,10 @@ public class Profile implements Savable {
     // EFFECTS: if the given movie has a title unique to the watched
     // movies list, adds movie to the list
     public boolean addToWatchedList(Movie newMovie) {
+        if (addToMovieList(watchedMovies,newMovie)) {
+            EventLog.getInstance()
+                    .logEvent(new Event(newMovie.getTitle() + " was added to the Watched List."));
+        }
         return addToMovieList(watchedMovies,newMovie);
     }
 
@@ -112,6 +116,10 @@ public class Profile implements Savable {
     // EFFECTS: if the given movie has a title unique to the recommended
     // movies list, adds movie to the list
     public boolean addToRecommendedList(Movie newMovie) {
+        if (addToMovieList(recommendedMovies,newMovie)) {
+            EventLog.getInstance()
+                    .logEvent(new Event(newMovie.getTitle() + " was added to the Recommended List."));
+        }
         return addToMovieList(recommendedMovies,newMovie);
     }
 

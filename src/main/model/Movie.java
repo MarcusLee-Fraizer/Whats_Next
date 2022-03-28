@@ -35,6 +35,8 @@ public class Movie implements Savable {
     // EFFECTS: sets the user rating of this movie to the given rating.
     public void setUserRating(int rating) {
         userRating = rating;
+        EventLog.getInstance()
+                .logEvent(new Event("User has changed their rating of " + this.getTitle() + "."));
     }
 
     // MODIFIES: this

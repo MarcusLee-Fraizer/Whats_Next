@@ -1,13 +1,13 @@
 package ui;
 
-import model.Movie;
-import model.Profile;
-import model.Recommendation;
+import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import ui.tabs.*;
 
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -53,6 +53,7 @@ public class WhatsNextUI extends JFrame {
         add(sidebar);
 
         setVisible(true);
+        printLog();
     }
 
     // EFFECTS: initiates application content with a profile of watched movies and a recommendation database
@@ -191,4 +192,17 @@ public class WhatsNextUI extends JFrame {
         sidebar.setTitleAt(RATINGS_TAB_INDEX, "Ratings");
     }
 
+    // EFFECTS: prints the event log of the application to the console on close
+    private void printLog() {
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+                for (Event event: EventLog.getInstance()) {
+                    System.out.println(event.toString());
+                }
+                e.getWindow().dispose();
+            }
+        });
+    }
 }
