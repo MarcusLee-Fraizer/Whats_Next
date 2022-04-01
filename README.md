@@ -47,5 +47,17 @@ PIRATES OF THE CARRIBEAN was added to the Watched List.
 - Mon Mar 28 15:00:23 PDT 2022
 DEADPOOL was added to the Recommended List.
 
+## Phase 4: Task 3
+- Refactor and pull common functionalities from
+displayMovies out of individual tabs and into 
+abstract Tab class.
+- Remove WhatsNextApp class completely.
+- Remove List of Movie fields from WatchedTab and
+RecommendedTab and access them through the given
+WhatsNextUI Profile.
+- Refactor and move JSON_STORE field and saveProfile()
+and loadProfile() methods into HomeTab Class, to
+keep save and load functionality in the same class.
+
 
   
